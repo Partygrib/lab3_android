@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import android.view.View.OnClickListener;
 
 import androidx.navigation.NavController;
@@ -27,7 +27,7 @@ public class FirstFragment extends Fragment {
         binding = FragmentFirst5Binding.inflate(inflater, container, false);
         View root = binding.getRoot();
         navController = Navigation.findNavController(container);
-        button = binding.Button1;
+        button = binding.bnToSecond;
         OnClickListener but1 = new OnClickListener() {
             @Override
             public void onClick(View v) {
