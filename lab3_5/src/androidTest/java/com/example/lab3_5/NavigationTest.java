@@ -9,6 +9,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -38,6 +39,12 @@ public class NavigationTest {
     public ActivityTestRule<MainActivity> mRule = new ActivityTestRule<>(
             MainActivity.class);
 
+    @Test
+    public void aboutTest() {
+        AboutUtils.openAbout();
+        onView(withId(R.id.activity_about)).check(matches(isDisplayed()));
+    }
+
     //проходим вперед по кнопкам, затем возвращаемся pressBack'ом (навигация назад)
 
     @Test
@@ -62,7 +69,7 @@ public class NavigationTest {
         onView(withId(R.id.fragment1)).check(matches(isDisplayed()));
 
         pressBackUnconditionally();
-        assertTrue(mainRule.getScenario().getState() == Lifecycle.State.DESTROYED);
+        assertSame(mainRule.getScenario().getState(), Lifecycle.State.DESTROYED);
     }
 
     // исключительно кнопочки

@@ -14,24 +14,35 @@
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/drawable/ic_menu_slideshow.xml" value="0.2703125" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/drawable/side_nav_bar.xml" value="0.2703125" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/about.xml" value="0.1" />
+        <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/about_2.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/about_activity.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/about_activity_2.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/about_bar.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/about_bar_2.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/app_bar_main.xml" value="0.1" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/app_bar_main_2.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/content_main_2.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/drawer_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/fragment_gallery.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/fragment_slideshow.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/nav_header_main.xml" value="0.1" />
+        <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/nav_header_main_2.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/second.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/second_2.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/second_activity.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/second_activity_2.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/second_app_bar.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/second_app_bar_2.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/second_bar.xml" value="0.1" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/third.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/third_2.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/third_activity.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/third_activity_2.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/third_app_bar.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/third_app_bar_2.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/layout/third_bar.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/menu/activity_main_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_2/src/main/res/menu/main.xml" value="0.25416666666666665" />
@@ -52,7 +63,11 @@
         <entry key="..\:/android_projects/lab3/lab3_3/src/main/res/layout/nav_header_main_3.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_3/src/main/res/layout/second_3.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_3/src/main/res/layout/second_activity_3.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_projects/lab3/lab3_3/src/main/res/layout/second_app_bar_3.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_projects/lab3/lab3_3/src/main/res/layout/third_3.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_projects/lab3/lab3_3/src/main/res/layout/third_activity_3.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_3/src/main/res/layout/third_app_bar.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_projects/lab3/lab3_3/src/main/res/layout/third_app_bar_3.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_4/src/main/res/drawable/side_nav_bar.xml" value="0.2657407407407407" />
         <entry key="..\:/android_projects/lab3/lab3_4/src/main/res/layout/about_3.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_4/src/main/res/layout/about_4.xml" value="0.1" />
@@ -60,10 +75,12 @@
         <entry key="..\:/android_projects/lab3/lab3_4/src/main/res/layout/about_barr_4.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_4/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_4/src/main/res/layout/activity_main_4.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_projects/lab3/lab3_4/src/main/res/layout/app_bar_main_4.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_4/src/main/res/layout/content_main_4.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_4/src/main/res/layout/nav_header_main_4.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_4/src/main/res/layout/second_4.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_4/src/main/res/layout/second_activity_4.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_projects/lab3/lab3_4/src/main/res/layout/second_app_bar_4.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_4/src/main/res/layout/third_4.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_4/src/main/res/layout/third_activity_4.xml" value="0.25416666666666665" />
         <entry key="..\:/android_projects/lab3/lab3_4/src/main/res/layout/third_app_bar_4.xml" value="0.25416666666666665" />
