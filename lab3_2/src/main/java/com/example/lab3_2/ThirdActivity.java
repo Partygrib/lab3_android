@@ -40,17 +40,17 @@ public class ThirdActivity extends AppCompatActivity implements OnClickListener,
         setSupportActionBar(binding.thirdAppBar.toolbar3);
         DrawerLayout drawer = binding.drawerLayout3;
         NavigationView navigationView = binding.navView;
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, binding.thirdAppBar.toolbar3, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+
+        getSupportActionBar().setTitle("Third Activity");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         navigationView.setNavigationItemSelectedListener(this);
 
-        button1 = (Button) findViewById(R.id.Button1);
-        button2 = (Button) findViewById(R.id.Button2);
+        button1 = (Button) findViewById(R.id.bnToFirst);
+        button2 = (Button) findViewById(R.id.bnToSecond);
 
-        button1.setOnClickListener(this::onClick);
-        button2.setOnClickListener(but1);
+        button1.setOnClickListener(but1);
+        button2.setOnClickListener(this::onClick);
     }
 
     @Override

@@ -26,12 +26,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(binding.appBarMain.toolbar5);
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.drawerNavView;
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, binding.appBarMain.toolbar5, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         navigationView.setNavigationItemSelectedListener(this);
         setSupportActionBar(binding.appBarMain.toolbar5);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     @Override

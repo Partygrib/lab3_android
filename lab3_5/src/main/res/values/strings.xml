@@ -21,4 +21,7 @@
     <string name="second">second</string>
     <string name="first">first</string>
     <string name="third">third</string>
+    <string name="title_to_second">To second</string>
+    <string name="title_to_third">To third</string>
+    <string name="title_to_first">To first</string>
 </resources>

@@ -3,6 +3,9 @@ package com.example.lab3_3;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+
+import com.example.lab3_3.databinding.ActivityMain3Binding;
+import com.example.lab3_3.databinding.ThirdActivity3Binding;
 import com.google.android.material.navigation.NavigationView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -15,7 +18,7 @@ import android.widget.Button;
 
 import com.example.lab3_3.databinding.SecondActivity3Binding;
 
-public class SecondActivity extends AppCompatActivity implements OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+public class SecondActivity extends AppCompatActivity implements OnClickListener, NavigationView.OnNavigationItemSelectedListener{
 
     Button button1;
     Button button2;
@@ -38,14 +41,14 @@ public class SecondActivity extends AppCompatActivity implements OnClickListener
         setSupportActionBar(binding.secondAppBar.toolbar2);
         DrawerLayout drawer = binding.drawerLayout2;
         NavigationView navigationView = binding.navView;
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, binding.secondAppBar.toolbar2, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+
         navigationView.setNavigationItemSelectedListener(this);
 
-        button1 = (Button) findViewById(R.id.Button1);
-        button2 = (Button) findViewById(R.id.Button2);
+        getSupportActionBar().setTitle("Second Activity");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        button1 = (Button) findViewById(R.id.bnToFirst);
+        button2 = (Button) findViewById(R.id.bnToThird);
 
         button1.setOnClickListener(this);
         button2.setOnClickListener(this::onClick2);

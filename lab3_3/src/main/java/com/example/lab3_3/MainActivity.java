@@ -3,6 +3,7 @@ package com.example.lab3_3;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
@@ -28,13 +29,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setSupportActionBar(binding.appBarMain.toolbar1);
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, binding.appBarMain.toolbar1, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+
+        getSupportActionBar().setTitle("First Activity");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         navigationView.setNavigationItemSelectedListener(this);
 
-        button = (Button) findViewById(R.id.Button1);
+        button = (Button) findViewById(R.id.bnToSecond);
         button.setOnClickListener(this);
     }
 
@@ -52,5 +53,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
         return false;
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

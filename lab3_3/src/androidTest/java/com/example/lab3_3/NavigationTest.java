@@ -1,4 +1,4 @@
-package com.example.lab3_5;
+package com.example.lab3_3;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.pressBackUnconditionally;
@@ -14,11 +14,10 @@ import static org.junit.Assert.assertTrue;
 
 import android.content.pm.ActivityInfo;
 
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-
 import androidx.lifecycle.Lifecycle;
+import androidx.test.core.app.ActivityScenario;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
-
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.Rule;
@@ -39,11 +38,11 @@ public class NavigationTest {
 
     @Rule
     public ActivityTestRule<MainActivity> mRule = new ActivityTestRule<>(
-            MainActivity.class);
+            MainActivity.class, true, true);
 
     @Test
     public void aboutTest() {
-        AboutUtils.openAbout();
+        AboutUtils.openAbout(1);
         onView(withId(R.id.activity_about)).check(matches(isDisplayed()));
     }
 
@@ -53,34 +52,25 @@ public class NavigationTest {
     public void testFrom1to3toAboutBack2back1back() {
 
         onView(withId(R.id.bnToSecond)).perform(click());
-        //fragment2
-        onView(withId(R.id.bnToFirst)).check(matches(isDisplayed()));
-        onView(withId(R.id.bnToThird)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout2)).check(matches(isDisplayed()));
 
         onView(withId(R.id.bnToThird)).perform(click());
-        //fragment3
-        onView(withId(R.id.bnToFirst)).check(matches(isDisplayed()));
-        onView(withId(R.id.bnToSecond)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout3)).check(matches(isDisplayed()));
 
-        AboutUtils.openAbout();
+        AboutUtils.openAbout(3);
         onView(withId(R.id.activity_about)).check(matches(isDisplayed()));
 
         pressBackUnconditionally();
-        //fragment3
-        onView(withId(R.id.bnToFirst)).check(matches(isDisplayed()));
-        onView(withId(R.id.bnToSecond)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout3)).check(matches(isDisplayed()));
 
         pressBackUnconditionally();
-        //fragment2
-        onView(withId(R.id.bnToFirst)).check(matches(isDisplayed()));
-        onView(withId(R.id.bnToThird)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout2)).check(matches(isDisplayed()));
 
         pressBackUnconditionally();
-        //fragment1
-        onView(withId(R.id.bnToSecond)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout)).check(matches(isDisplayed()));
 
         pressBackUnconditionally();
-        assertSame(mainRule.getScenario().getState(), Lifecycle.State.DESTROYED);
+        assertSame(mRule.getActivity().getLifecycle().getCurrentState(), Lifecycle.State.DESTROYED);
     }
 
     // исключительно кнопочки
@@ -89,93 +79,67 @@ public class NavigationTest {
     public void testAllButtons() {
 
         onView(withId(R.id.bnToSecond)).perform(click());
-        //fragment2
-        onView(withId(R.id.bnToFirst)).check(matches(isDisplayed()));
-        onView(withId(R.id.bnToThird)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout2)).check(matches(isDisplayed()));
 
         onView(withId(R.id.bnToThird)).perform(click());
-        //fragment3
-        onView(withId(R.id.bnToFirst)).check(matches(isDisplayed()));
-        onView(withId(R.id.bnToSecond)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout3)).check(matches(isDisplayed()));
 
         onView(withId(R.id.bnToFirst)).perform(click());
-        //fragment1
-        onView(withId(R.id.bnToSecond)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout)).check(matches(isDisplayed()));
 
         onView(withId(R.id.bnToSecond)).perform(click());
         onView(withId(R.id.bnToThird)).perform(click());
 
         onView(withId(R.id.bnToSecond)).perform(click());
-        //fragment2
-        onView(withId(R.id.bnToFirst)).check(matches(isDisplayed()));
-        onView(withId(R.id.bnToThird)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout2)).check(matches(isDisplayed()));
 
-        AboutUtils.openAbout();
+        AboutUtils.openAbout(2);
         onView(withId(R.id.activity_about)).check(matches(isDisplayed()));
     }
 
     // навигация вверх
 
     @Test
-    public void testFrom1to3toAboutUp3Up2Up1() {
+    public void testFrom1to3toAboutUp3Up2() {
 
         onView(withId(R.id.bnToSecond)).perform(click());
-        //fragment2
-        onView(withId(R.id.bnToFirst)).check(matches(isDisplayed()));
-        onView(withId(R.id.bnToThird)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout2)).check(matches(isDisplayed()));
 
         onView(withId(R.id.bnToThird)).perform(click());
-        //fragment3
-        onView(withId(R.id.bnToFirst)).check(matches(isDisplayed()));
-        onView(withId(R.id.bnToSecond)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout3)).check(matches(isDisplayed()));
 
-        AboutUtils.openAbout();
+        AboutUtils.openAbout(3);
         onView(withId(R.id.activity_about)).check(matches(isDisplayed()));
 
         onView(withContentDescription(R.string.nav_app_bar_navigate_up_description))
                 .perform(click());
-        //fragment3
-        onView(withId(R.id.bnToFirst)).check(matches(isDisplayed()));
-        onView(withId(R.id.bnToSecond)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout3)).check(matches(isDisplayed()));
 
         onView(withContentDescription(R.string.nav_app_bar_navigate_up_description))
                 .perform(click());
-        //fragment2
-        onView(withId(R.id.bnToFirst)).check(matches(isDisplayed()));
-        onView(withId(R.id.bnToThird)).check(matches(isDisplayed()));
-
-        onView(withContentDescription(R.string.nav_app_bar_navigate_up_description))
-                .perform(click());
-        //fragment1
-        onView(withId(R.id.bnToSecond)).check(matches(isDisplayed()));
-
-        pressBackUnconditionally();
-        assertTrue(mainRule.getScenario().getState() == Lifecycle.State.DESTROYED);
+        onView(withId(R.id.drawer_layout2)).check(matches(isDisplayed()));
     }
 
     //тестируем различные пути к About + возвращение
 
     @Test
-    public void testFrom1to2back1toAbout() {
+    public void testFrom1to2back1toAboutUp() {
 
         onView(withId(R.id.bnToSecond)).perform(click());
-        //fragment2
-        onView(withId(R.id.bnToFirst)).check(matches(isDisplayed()));
-        onView(withId(R.id.bnToThird)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout2)).check(matches(isDisplayed()));
 
         pressBackUnconditionally();
-        //fragment1
-        onView(withId(R.id.bnToSecond)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout)).check(matches(isDisplayed()));
 
-        AboutUtils.openAbout();
+        AboutUtils.openAbout(1);
         onView(withId(R.id.activity_about)).check(matches(isDisplayed()));
 
         pressBackUnconditionally();
-        //fragment1
-        onView(withId(R.id.bnToSecond)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout)).check(matches(isDisplayed()));
 
-        pressBackUnconditionally();
-        assertTrue(mainRule.getScenario().getState() == Lifecycle.State.DESTROYED);
+        onView(withContentDescription(R.string.nav_app_bar_navigate_up_description))
+                .perform(click());
+        assertSame(mRule.getActivity().getLifecycle().getCurrentState(), Lifecycle.State.DESTROYED);
     }
 
     //Для проверки работоспособности кнопок после смены ориентации экрана
@@ -202,14 +166,15 @@ public class NavigationTest {
     public void testRotate1() throws InterruptedException {
         landscapeOrientation();
         checkButton(R.id.bnToSecond, R.string.title_to_second);
+        onView(withId(R.id.drawer_layout)).check(matches(isDisplayed()));
 
         portraitOrientation();
         checkButton(R.id.bnToSecond, R.string.title_to_second);
+        onView(withId(R.id.drawer_layout)).check(matches(isDisplayed()));
 
         landscapeOrientation();
         onView(withId(R.id.bnToSecond)).perform(click());
-        checkButton(R.id.bnToFirst, R.string.title_to_first);
-        checkButton(R.id.bnToThird, R.string.title_to_third);
+        onView(withId(R.id.drawer_layout2)).check(matches(isDisplayed()));
     }
 
     @Test
@@ -219,23 +184,23 @@ public class NavigationTest {
         landscapeOrientation();
         checkButton(R.id.bnToFirst, R.string.title_to_first);
         checkButton(R.id.bnToThird, R.string.title_to_third);
+        onView(withId(R.id.drawer_layout2)).check(matches(isDisplayed()));
 
         portraitOrientation();
         checkButton(R.id.bnToFirst, R.string.title_to_first);
         checkButton(R.id.bnToThird, R.string.title_to_third);
+        onView(withId(R.id.drawer_layout2)).check(matches(isDisplayed()));
 
         landscapeOrientation();
         onView(withId(R.id.bnToThird)).perform(click());
-        checkButton(R.id.bnToFirst, R.string.title_to_first);
-        checkButton(R.id.bnToSecond, R.string.title_to_second);
+        onView(withId(R.id.drawer_layout3)).check(matches(isDisplayed()));
 
         pressBackUnconditionally();
-        checkButton(R.id.bnToFirst, R.string.title_to_first);
-        checkButton(R.id.bnToThird, R.string.title_to_third);
+        onView(withId(R.id.drawer_layout2)).check(matches(isDisplayed()));
         landscapeOrientation();
 
         pressBackUnconditionally();
-        checkButton(R.id.bnToSecond, R.string.title_to_second);
+        onView(withId(R.id.drawer_layout)).check(matches(isDisplayed()));
     }
 
     @Test
@@ -246,17 +211,16 @@ public class NavigationTest {
         landscapeOrientation();
         checkButton(R.id.bnToFirst, R.string.title_to_first);
         checkButton(R.id.bnToSecond, R.string.title_to_second);
-        //fragment3
+        onView(withId(R.id.drawer_layout3)).check(matches(isDisplayed()));
 
         portraitOrientation();
         checkButton(R.id.bnToFirst, R.string.title_to_first);
         checkButton(R.id.bnToSecond, R.string.title_to_second);
-        //fragment3
+        onView(withId(R.id.drawer_layout3)).check(matches(isDisplayed()));
 
         landscapeOrientation();
         onView(withId(R.id.bnToFirst)).perform(click());
-        //fragment1
-        checkButton(R.id.bnToSecond, R.string.title_to_second);
+        onView(withId(R.id.drawer_layout)).check(matches(isDisplayed()));
     }
 
     @Test
@@ -264,17 +228,17 @@ public class NavigationTest {
         onView(withId(R.id.bnToSecond)).perform(click());
         onView(withId(R.id.bnToThird)).perform(click());
 
-        AboutUtils.openAbout();
+        AboutUtils.openAbout(3);
         landscapeOrientation();
 
         onView(withContentDescription(R.string.nav_app_bar_navigate_up_description))
                 .perform(click());
-        //fragment3
+        onView(withId(R.id.drawer_layout3)).check(matches(isDisplayed()));
         checkButton(R.id.bnToFirst, R.string.title_to_first);
         checkButton(R.id.bnToSecond, R.string.title_to_second);
 
         onView(withId(R.id.bnToFirst)).perform(click());
-        //fragment1
+        onView(withId(R.id.drawer_layout)).check(matches(isDisplayed()));
         checkButton(R.id.bnToSecond, R.string.title_to_second);
     }
 
@@ -283,16 +247,16 @@ public class NavigationTest {
         onView(withId(R.id.bnToSecond)).perform(click());
         onView(withId(R.id.bnToThird)).perform(click());
 
-        AboutUtils.openAbout();
+        AboutUtils.openAbout(3);
         landscapeOrientation();
 
         pressBackUnconditionally();
-        //fragment3
+        onView(withId(R.id.drawer_layout3)).check(matches(isDisplayed()));
         checkButton(R.id.bnToFirst, R.string.title_to_first);
         checkButton(R.id.bnToSecond, R.string.title_to_second);
 
         onView(withId(R.id.bnToFirst)).perform(click());
-        //fragment1
+        onView(withId(R.id.drawer_layout)).check(matches(isDisplayed()));
         checkButton(R.id.bnToSecond, R.string.title_to_second);
     }
 }

@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/second_app_bar_3">
+    tools:context=".SecondActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -22,13 +21,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/Button1"
+        android:id="@+id/bnToFirst"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:text="@string/to_first"
+        android:text="@string/title_to_first"
         android:textSize="30sp"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,17 +35,17 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/Button2"
+        android:id="@+id/bnToThird"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:text="@string/to_third"
+        android:text="@string/title_to_third"
         android:textSize="30sp"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Button1" />
+        app:layout_constraintTop_toBottomOf="@+id/bnToFirst" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

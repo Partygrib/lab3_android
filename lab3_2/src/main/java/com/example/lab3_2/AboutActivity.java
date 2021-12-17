@@ -26,10 +26,10 @@ public class AboutActivity extends AppCompatActivity implements NavigationView.O
         setSupportActionBar(binding.aboutBar.toolbarAbout);
         DrawerLayout drawer = binding.drawerLayoutAbout;
         NavigationView navigationView = binding.navView;
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, binding.aboutBar.toolbarAbout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+
+        getSupportActionBar().setTitle("About Activity");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -40,5 +40,11 @@ public class AboutActivity extends AppCompatActivity implements NavigationView.O
         Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
         return false;
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

@@ -1,7 +1,13 @@
 package com.example.lab3_2;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import com.google.android.material.navigation.NavigationView;
 import androidx.core.view.GravityCompat;
@@ -19,6 +25,7 @@ public class SecondActivity extends AppCompatActivity implements OnClickListener
 
     Button button1;
     Button button2;
+    public static final int REQUEST_CODE = 1;
     private SecondActivity2Binding binding;
 
     OnClickListener but1 = new OnClickListener() {
@@ -38,30 +45,31 @@ public class SecondActivity extends AppCompatActivity implements OnClickListener
         setSupportActionBar(binding.secondAppBar.toolbar2);
         DrawerLayout drawer = binding.drawerLayout2;
         NavigationView navigationView = binding.navView;
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, binding.secondAppBar.toolbar2, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+
+        getSupportActionBar().setTitle("Second Activity");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         navigationView.setNavigationItemSelectedListener(this);
 
-        button1 = (Button) findViewById(R.id.Button1);
-        button2 = (Button) findViewById(R.id.Button2);
+        button1 = (Button) findViewById(R.id.bnToFirst);
+        button2 = (Button) findViewById(R.id.bnToThird);
 
         button1.setOnClickListener(but1);
         button2.setOnClickListener(this::onClick);
     }
 
+    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    finish();
+                }
+            });
+
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(this, ThirdActivity.class);
-        startActivityForResult(intent, 1);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (data == null) {
-            finish();
-        }
+        someActivityResultLauncher.launch(intent);
     }
 
     @Override
